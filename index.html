@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publiking ♛ - Impulsa tu Emprendimiento</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        /* Encabezado (Header) */
+        header {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 1.5em 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* Navegación (Nav) */
+        nav {
+            background-color: #343a40;
+            padding: 0.8em 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky; /* Hace que la navegación se quede arriba al hacer scroll */
+            top: 0;
+            z-index: 1000; /* Asegura que esté por encima de otros elementos */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            transition: background-color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #0056b3;
+        }
+
+        /* Sección Hero / Portada */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x500/007bff/ffffff?text=Publiking:+Tu+Impulso+Emprendedor') no-repeat center center/cover;
+            color: #ffffff;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .hero h2 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .btn-primary {
+            background-color: #28a745;
+            color: #ffffff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        /* Secciones Generales */
+        .section {
+            background-color: #ffffff;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #007bff;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #dee2e6;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .section ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        .section ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Emprendimientos */
+        .emprendimientos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .emprendimiento-card {
+            background-color: #e9ecef;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
+        }
+
+        .emprendimiento-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+        }
+
+        .emprendimiento-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .emprendimiento-card-content {
+            padding: 20px;
+            flex-grow: 1; /* Permite que el contenido ocupe el espacio restante */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .emprendimiento-card-content h3 {
+            color: #0056b3;
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .emprendimiento-card-content p {
+            font-size: 1em;
+            margin-bottom: 15px;
+            flex-grow: 1; /* Permite que el párrafo ocupe el espacio restante */
+        }
+
+        .emprendimiento-card-content .contact-link {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+            align-self: flex-start; /* Alinea el botón a la izquierda en la tarjeta */
+        }
+
+        .emprendimiento-card-content .contact-link:hover {
+            background-color: #0056b3;
+        }
+
+        /* Pie de página (Footer) */
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            text-align: center;
+            padding: 1.5em 0;
+            margin-top: 40px;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Publiking</h1>
+            <p>El Impulso que tu Emprendimiento Necesita</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#inicio" class="active">Inicio</a></li>
+                <li><a href="#¿quienes-somos?">Quiénes Somos</a></li>
+                <li><a href="#publicidades">Publicidades de Emprendimientos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="inicio" class="hero">
+            <h2>Conectando Emprendimientos con Oportunidades</h2>
+            <p>En Publiking, damos visibilidad a los talentos del 5to B, ayudando a sus ideas a crecer y prosperar.</p>
+            <a href="#publicidades" class="btn-primary">Explora los Emprendimientos</a>
+        </section>
+
+        <section id="¿quienes-somos?" class="section">
+            <h2>¿Quiénes Somos?</h2>
+            <p>Somos un equipo de estudiantes que realizan un proyecto para mejorar los <a href="example.html" target="blank">emprendimientos</a> de los estudiantes de 5to B de la U.E.P. APEP "La Candelaria" mediante <a href="publicidad.html" target="blank"> publicidad</a>. Creemos en el potencial de cada idea y trabajamos para que alcancen la visibilidad que merecen.</p>
+
+            <h3>Misión</h3>
+            <p>Se busca mas reconocimiento y salida del producto o emprendimiento y salida del producto o emprendimiento del estudiante para que no termine estancado perdiendo asi material para elaborar el producto</p>
+
+            <h3>Visión</h3>
+            <p>Queremos mejorar de tal forma los emprendimientos con nuestra publicidad para los estudiantes de 5 to B , para empezar tambien a ayudar a otras secciones de la U.E.P APEP "La Candelaria"</p>
+        
+        <h3>Objetivo</h3>
+        <p>Queremos que las ventas de ciertos estudiantes salgan a flote y que ellos puedan mejorar y sacar adelante su producto con nuestras publicidades que se encuentran en la página.</p>
+        </section>
+
+        <section id="publicidades" class="section">
+            <h2>Publicidades de Emprendimientos del 5to B</h2>
+            <p>Descubre los increíbles proyectos y productos que nuestros compañeros del 5to B tienen para ofrecer. ¡Apoya el talento local!</p>
+
+            <div class="emprendimientos-grid">
+                <div class="emprendimiento-card">
+                    <img src="https://tb-static.uber.com/prod/image-proc/processed_images/19888afefb59f19b0e69eb1b23ce58b0/fb86662148be855d931b37d6c1e5fcbe.jpeg" alt="Emprendimiento de Repostería">
+                    <div class="emprendimiento-card-content">
+                        <h3>Dulces Marquesas</h3>
+                        <p>Deliciosos marquesas caseras, personalizadas para cualquier ocasión. ¡Endulza tu día!</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="emprendimiento-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgWvz1TWCsXq0D7JHHyxU3bEldQGztVKMe4SbaqB9z54PSmaWYfu0xac25wDrkm52HMas&usqp=CAU" alt="Emprendimiento de Accesorios">
+                    <div class="emprendimiento-card-content">
+                        <h3>Delicias Creativas</h3>
+                        <p>Deliciosas tortas frias para darse un buen gusto al corazon y la tripita. ¡Provecho!</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="emprendimiento-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpEbb7bIjPiuuVD9UhYnh_ezS21tsUt5QI-Q&s" alt="Emprendimiento de Manualidades">
+                    <div class="emprendimiento-card-content">
+                        <h3>Tostones Al Patacón</h3>
+                        <p>Ricos y saladitos tostones que te haran lamerte los dedos con su increible sabor ¡ideal para la tarde!</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="emprendimiento-card">
+                    <img src="https://imag.bonviveur.com/cookies-caseras-foto-principal.jpg" alt="Emprendimiento de Comida Rápida">
+                    <div class="emprendimiento-card-content">
+                        <h3>Amor Dulce</h3>
+                        <p>Dulces y sabrosas galletas caseras que te haran querer mas ¡Buenas para un domingo en familia!</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="emprendimiento-card">
+                    <img src="https://cr7us.com/cdn/shop/products/IMG_3321.jpg?v=1684848547&width=1200" alt="Emprendimiento de Ropa Personalizada">
+                    <div class="emprendimiento-card-content">
+                        <h3>Perfumes Shop</h3>
+                        <p>Gran venta de perfumes masculinos de excelente calidad. ¡Que haran que huelas al el mismisimo Cristiano Ronaldo!</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="emprendimiento-card">
+                    <img src="https://voz.ucad.edu.mx/wp-content/uploads/2019/05/dulces.jpg" alt="Emprendimiento de Detalles">
+                    <div class="emprendimiento-card-content">
+                        <h3>Dulce Tentación</h3>
+                        <p>Dulces y empalagosas golosinas que haran que tu camino se en dulce en felicidad!</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="emprendimiento-card">
+                    <img src="https://d1ih8jugeo2m5m.cloudfront.net/2024/03/dropshipping_joyeria-700x400.jpg" alt="Emprendimiento de Artesanía">
+                    <div class="emprendimiento-card-content">
+                        <h3>Vip S.S</h3>
+                        <p>Gran venta de joyeria para dar un lindo presente a una conocida , amiga !hasta prometida!.</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="emprendimiento-card">
+                    <img src="https://img.freepik.com/fotos-premium/pulseras-brazaletes-cuero-hechos-mano-moda-venta-mercado-artesanos-recuerdos-artesanales-mercadillo-compra-recuerdos-elegantes_984126-11043.jpg" alt="Emprendimiento de Cafetería">
+                    <div class="emprendimiento-card-content">
+                        <h3>Artesania en muñeca</h3>
+                        <p>Encantadoras y muy bien elaboradas pulseras y collares ¡para lucir mas ante todos!</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="emprendimiento-card">
+                    <img src="https://universidadeuropea.com/resources/media/images/ramas_diseno_grafico.width-640.jpg" alt="Emprendimiento de Jardinería">
+                    <div class="emprendimiento-card-content">
+                        <h3>Diseños creativos</h3>
+                        <p>Mejorando el aprendizaje de diseño grafico para volverte un profesional!</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="emprendimiento-card">
+                    <img src="https://thumbs.dreamstime.com/b/collares-y-pulseras-recuerdo-joyer%C3%ADa-tienda-de-recuerdos-joyas-colores-fotograf%C3%ADa-alta-calidad-211200556.jpg" alt="Emprendimiento de Joyería">
+                    <div class="emprendimiento-card-content">
+                        <h3>Joyas , collares y pulseras del Alma</h3>
+                        <p>Joyería artesanal con perlas semipreciosas y diseños elegantes para cada ocasión.</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="emprendimiento-card">
+                    <img src="https://comidasvenezolanas.net/wp-content/uploads/2019/07/Ponquesitos.jpg" alt="Emprendimiento de Maquillaje">
+                    <div class="emprendimiento-card-content">
+                        <h3>Belleza en cada bocado</h3>
+                        <p>Esponjosos y ricos ponquesitos que haran que se te babee la boca de tan solo ver las!</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="emprendimiento-card">
+                    <img src="https://images.aws.nestle.recipes/resized/2020_06_09T08_20_04_mrs_ImageRecipes_32078lrg_1080_850.jpg" alt="Emprendimiento de Madera">
+                    <div class="emprendimiento-card-content">
+                        <h3>Dulce felicidad</h3>
+                        <p>Son tan ricas y sabrosas que se te hara agua la boca de tan solo verlas</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="emprendimiento-card">
+                    <img src="https://images.hive.blog/0x0/https://steemitimages.com/DQmcY5oCNhEgsKgzpLbVvNcMCPd1sn9QoWieNPuFqHDmY8p/03184-hacer-torta-marmolada_l.jpg" alt="Emprendimiento de Libros">
+                    <div class="emprendimiento-card-content">
+                        <h3>Bizcochos sumamente deliciosos</h3>
+                        <p>Dulces y apetitosas tortas marmoleadas para tu corazon sienta la verdadera felicidad!.</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="emprendimiento-card">
+                    <img src="https://www.recetasnestlecam.com/sites/default/files/styles/recipe_detail_desktop_new/public/srh_recipes/593d58d7749ae7a1f9748b4c8c874331.jpeg?itok=_g7bFoXn" alt="Emprendimiento de Velas">
+                    <div class="emprendimiento-card-content">
+                        <h3>Chocolatosas Galletas</h3>
+                        <p>Dulces y riquisimas galletas que te haran sentir un abrazo a tu barriga.</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="emprendimiento-card">
+                    <img src="https://i.blogs.es/4bf2ec/galletas_coco/450_1000.jpg" alt="Emprendimiento de Reciclaje">
+                    <div class="emprendimiento-card-content">
+                        <h3>Galletas Sabrosonas</h3>
+                        <p>Galletas que te haran sentir el amor de una madre con cada bocado!</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="emprendimiento-card">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiso6ZkKRJwO4y3fD7Koy4m8fq5jQ-snwd_fKDSAn_FyT5TqoXTJg8PAjW7MscVuXJ-GNQbFYqQ0njZ5WhoVR32BJG2pWmMBUlktVj49WTs6rm2i65IpMiW9IFSikMe-31xUR6olWc0MMnQ/s1600/EnConstruccion.jpg" alt="Emprendimiento de Dulces">
+                    <div class="emprendimiento-card-content">
+                        <h3>Este emprendimiento esta en proceso</h3>
+                        <p>Contactanos para poner tu publicidad y impulsar tu emprendimiento.</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="emprendimiento-card">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiso6ZkKRJwO4y3fD7Koy4m8fq5jQ-snwd_fKDSAn_FyT5TqoXTJg8PAjW7MscVuXJ-GNQbFYqQ0njZ5WhoVR32BJG2pWmMBUlktVj49WTs6rm2i65IpMiW9IFSikMe-31xUR6olWc0MMnQ/s1600/EnConstruccion.jpg" alt="Emprendimiento de Bocadillos">
+                    <div class="emprendimiento-card-content">
+                        <h3>Este emprendimiento esta en proceso</h3>
+                        <p>Contactanos para poner tu publicidad y impulsar tu emprendimiento.</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="emprendimiento-card">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiso6ZkKRJwO4y3fD7Koy4m8fq5jQ-snwd_fKDSAn_FyT5TqoXTJg8PAjW7MscVuXJ-GNQbFYqQ0njZ5WhoVR32BJG2pWmMBUlktVj49WTs6rm2i65IpMiW9IFSikMe-31xUR6olWc0MMnQ/s1600/EnConstruccion.jpg" alt="Emprendimiento de Títeres">
+                    <div class="emprendimiento-card-content">
+                        <h3>Este emprendimiento esta en proceso</h3>
+            <p>Contactanos para poner tu publicidad y impulsar tu emprendimiento.</p>
+                        <a href="https://wa.me/584144930673" target="_blank" class="contact-link">Contactar &raquo;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="section">
+            <h2>Contáctanos</h2>
+            <p>Si eres un estudiante del 5to B de la U.E.P. APEP "La Candelaria" y quieres publicitar tu emprendimiento aquí, ¡no dudes en contactarnos!</p>
+            <p><strong>Email:</strong> publiking117@gmail.com</p>
+            <p><strong>WhatsApp:</strong> +58 414-4930673</p>
+            <p><strong>Ubicación:</strong> Turmero, Aragua, Venezuela</p>
+            <P>¡Para más información sobre la U.E.P APEP "La Candelaria" visita su página web!</P>
+            <p><a href="https://lacandelaria.com.ve/">Haz clic aqui para más información!</a></p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Publiking. Todos los derechos reservados. Impulsando el talento en Turmero, Aragua.</p>
+        </div>
+    </footer>
+</body>
+</html>
